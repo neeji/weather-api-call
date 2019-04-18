@@ -1,0 +1,147 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+#back_gr{
+    max-height:100vh;
+    min-width: 325px;
+    /* background-image: linear-gradient(-60deg, green,#63a4d2); */
+    /* background: none; */
+}
+body{
+    margin:0;
+}
+p{
+    text-align: center;
+}
+
+.container{
+    display:flex;
+    flex-wrap: wrap;
+    /* height:100vh; */
+    max-width:1000px;
+    /* height: 800px; */
+    margin: 0 auto;
+}
+
+.small_box1{
+    width:100%;
+    height:25%;
+    /* border: 1px solid blue; */
+    /* max-height: 9em; */
+}
+.small_box2{
+    width:100%;
+    height:20.66%;
+    /* border: 1px solid green; */
+    /* max-height: 100px; */
+}
+#small_box3{
+    width:100%;
+    /* border: 1px solid yellow; */
+    height:59.34%;
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 0;
+    /* opacity: 0.2; channge the opacity to show it on screen only when the weather is gathered from API*/
+}
+
+.small_box1 p{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4em;
+    text-align: center;
+    margin: 0.4em auto;
+}
+#elements{
+    width: 100%;
+    margin:0 auto;
+    text-align: center;
+}
+#image{
+    position: fixed;
+    height:100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0.8;
+}
+.data_weather{
+    width:100%;
+    height: 25%;
+    /* margin:0 auto; */
+}
+.temp_head{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid red; */
+}
+.temp_min{
+    width: 33.33%;
+    height:75%;
+    /* border: 1px solid red; */
+}
+.temp_avg{
+    width: 33.33%;
+    height:75%;
+    /* border: 1px solid red; */
+}
+.temp_max{
+    width: 33.33%;
+    height:75%;
+    /* border: 1px solid red; */
+}
+.temp_head p{
+    margin:0.5em auto;
+    /* border: 1px solid black; */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5em;
+    text-align: center;
+}
+#avg ,#min, #max{
+    color:black;
+    text-shadow:0.1em 0.1em 0.1em white;
+    font-size: 2em;
+    font-style: oblique;
+    font-weight: bold;
+}
+@media screen and (max-width:630px){
+    .small_box1{
+        height:15%;
+    }
+    .small_box2{
+        height:10.66%;
+    }
+    #small_box3{
+        height:75.34%;
+    }
+    .small_box1 p{
+        font-size: 3em;
+    }
+    .data_weather{
+        height: 15%;
+    }
+}
+@media screen and (max-width:475px){
+    .small_box1{
+        height:10%;
+    }
+    .small_box2{
+        height:6.66%;
+    }
+    #small_box3{
+        height:84.34%;
+    }
+    .small_box1 p{
+        font-size: 2em;
+    }
+    /* #elements{
+    margin: 2% auto;
+    } */
+    .data_weather{
+        height: 8%;
+    }
+    #avg ,#min, #max{
+        font-size: 1.2em;
+    }
+
+}

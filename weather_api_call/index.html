@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather API CALL</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montez" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="back_gr">
+        <img id="image" src="./linear_gradient.png">
+        <section class="container">
+            <section class="small_box1">
+                <!-- <section id="head_text">Weather API CALL.</section> -->
+                <p>Weather API CALL.</p>
+            </section>
+            <section class="small_box2">
+                <section id="elements">
+                    <input type="text" id="city" placeholder="Enter city,country (Delhi,IN)">
+                    <button id="go">Go</button>
+                </section>
+            </section>
+            <section id="small_box3">
+                <section class="data_weather">
+                    <section class="temp_head">
+                        <p>TEMPERATURES</p>
+                    </section>
+                </section>
+                <section class="temp_min">
+                    <p>MINIMUM</p>
+                    <p id="min"></p>
+                </section>
+                <section class="temp_avg">
+                    <p>AVERAGE</p>
+                    <p id="avg"></p>
+                </section>
+                <section class="temp_max">
+                    <p>MAXIMUM</p>
+                    <p id="max"></p>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script src="call.js"></script>
+</body>
+
+</html>
