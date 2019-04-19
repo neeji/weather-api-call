@@ -1,0 +1,56 @@
+body{
+    margin:0px;
+}
+.back_gr{
+    /* background-image: url("./background.jpeg"); */
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    height: 100vh;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+.space_box{
+    width:100%;
+    height: 12.5%;
+}
+.main_box{
+    margin:0 auto;
+    width:75%;
+    height: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid blue;
+}
+.input_box{
+    width:100%;
+    height:75%;
+    text-align: center;
+    margin: 0 auto;
+}
+.inner_space_box{
+        width:100%;
+        height: 25%;
+}
+.box1{
+    width:65%;
+    height:100%;
+    /* border: 1px dotted green; */
+}
+.box2{
+    width:35%;
+    height:100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px dotted red; */
+}
+.im_box{
+    height:50%;
+    width:100%;
+}
+.temp_box{
+    height:50%;
+    width:100%;
+}
