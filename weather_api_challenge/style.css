@@ -2,14 +2,20 @@ body{
     margin:0px;
 }
 .back_gr{
+    position: fixed;
     /* background-image: url("./background.jpeg"); */
+    background-image: linear-gradient(90deg,#000000,#8b4298);    
+    opacity: 1;
+    z-index: -2;
+    height: 100%;
+    width:100%;
 }
 .container{
     display: flex;
     flex-wrap: wrap;
     max-width: 1000px;
     height: 100vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
 }
 .space_box{
@@ -17,12 +23,24 @@ body{
     height: 12.5%;
 }
 .main_box{
+    position: relative;
     margin:0 auto;
     width:75%;
     height: 75%;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    /* add box shadow */
+    -webkit-box-shadow: 17px 15px 20px 11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 17px 15px 20px 11px rgba(0,0,0,0.75);
+    box-shadow: 17px 15px 20px 11px rgba(0,0,0,0.75);
+    /*                */
+    /* add border radius */
+    border-radius: 46px 46px 46px 46px;
+    -moz-border-radius: 46px 46px 46px 46px;
+    -webkit-border-radius: 46px 46px 46px 46px;
+    border: 0px solid #000000;
+    /*                  */
 }
 .input_box{
     width:100%;
@@ -35,6 +53,7 @@ body{
         height: 25%;
 }
 .box1{
+    /* position: relative; */
     width:65%;
     height:100%;
     /* border: 1px dotted green; */
@@ -53,4 +72,38 @@ body{
 .temp_box{
     height:50%;
     width:100%;
+}
+#image{
+    position: absolute;
+    height:100%;
+    width:100%;
+    opacity: 0.1;
+    z-index: -1;
+    /* need to dd border radius to image as well so that it wont overflow*/
+    border-radius: 46px 46px 46px 46px;
+    -moz-border-radius: 46px 46px 46px 46px;
+    -webkit-border-radius: 46px 46px 46px 46px;
+    border: 0px solid #000000;
+}
+#icon{
+    opacity: 0;
+    margin:25%;
+    height:50%;
+    width:50%;
+}
+i{
+    font-size: 1.2em;
+}
+i:hover{
+    color:red;
+
+}
+span{
+    /* background-color: mediumaquamarine; */
+    display:inline-block;
+    width:65%;
+    margin-left: 22%;
+    font-size: 1em;
+    text-align: left;
+    font-weight: bold;
 }
