@@ -277,7 +277,7 @@
                 // the data returned by the server is in json format so we need to parse it using json.
                 data.json()//as .json() returns a promise we need to use another function to get the data from it.
                     .then(function (data) {
-                        console.log(data);
+                        // console.log(data);
                         // to set the image url according to the weather conditions.
                         set_city_name(data);
                         set_image(data);
@@ -285,7 +285,7 @@
                         append_spans(data);
                         set_sun_times(data);
                         set_wind(data);
-                        console.log(codes[data.sys.country]);
+                        // console.log(codes[data.sys.country]);
                     })
             })
     }
@@ -296,33 +296,20 @@
         var current_time_stamp = new Date();
         var sr = data.sys.sunrise;
         var ss = data.sys.sunset;
-        console.log(sr);
-        console.log(ss);
+        // console.log(sr);
+        // console.log(ss);
         var checking_sun_On = parseInt(current_time_stamp.getTime() / 1000);
-        console.log(`current time stamp is ${current_time_stamp.getTime() / 1000}`);
+        // console.log(`current time stamp is ${current_time_stamp.getTime() / 1000}`);
         if (sr <= checking_sun_On && checking_sun_On <= ss) {
-            console.log("sunrise");
             sun_On = 1;
         } else {
-            console.log("sunset");
             sun_On = 0;
         }
-        var srd = new Date(sr * 1000).toLocaleDateString("en-US");
-        var srt = new Date(sr * 1000).toLocaleTimeString("en-US");
-        var ssd = new Date(ss * 1000).toLocaleDateString("en-US");
-        var sst = new Date(ss * 1000).toLocaleTimeString("en-US");
-        console.log(sr);
-        console.log(ss);
-        console.log(srd);
-        console.log(srt);
-        console.log(ssd);
-        console.log(sst);
         icon.style.opacity = 1;
         //icon 11d
         if (id == 200 || id == 201 || id == 202 || id == 210 ||
             id == 211 || id == 212 || id == 221 || id == 230 ||
             id == 231 || id == 232) {
-            // console.log("image 11.png");
             icon.src = "./11.png";
         }
         //icon 09d or 10d
@@ -332,7 +319,6 @@
             id == 500 || id == 501 || id == 502 ||
             id == 503 || id == 504 || id == 520 || id == 521 ||
             id == 522 || id == 531) {
-            // console.log("image 0910.png");
             icon.src = "./0910.png";
         }
         //icon 13d
@@ -340,20 +326,17 @@
             id == 602 || id == 611 || id == 612 || id == 613 ||
             id == 615 || id == 616 || id == 620 || id == 621 ||
             id == 622) {
-            // console.log("image 13.png");
             icon.src = "./13.png";
         }
         // icon 50d
         else if (id == 701 || id == 711 || id == 721 ||
             id == 731 || id == 741 || id == 751 || id == 761 ||
             id == 762 || id == 771 || id == 781) {
-            // console.log("image 50.png");
             icon.src = "./50.png";
 
         }
         //clear sky variable images start here
         else if (id == 800) {
-            // console.log("image icon 01d or 01n");
             if (sun_On == 1) {
                 icon.src = "./01d.png";
             } else {
@@ -362,7 +345,6 @@
         }
         //image icon 2d 2n
         else if (id == 801) {
-            // console.log("image icon 02d 02n");
             if (sun_On == 1) {
                 icon.src = "./02d.png";
             } else {
@@ -371,7 +353,6 @@
         }
         //image icon 3d 3n 4d 4n
         else if (id == 802 || id == 803 || id == 804) {
-            // console.log("image 0304");
             icon.src = "0304.png";
         }
     }
@@ -428,9 +409,6 @@
         var country = data.sys.country;
         // example EU.
         var continent = codes[country];
-        // console.log(name);
-        // name = String(name).toUpperCase();
-        console.log(name);
         if (name == 'DELHI') {
             image.src = "./delhi.jpeg";
         } else if (name == 'AGRA') {
@@ -440,7 +418,6 @@
         } else if (name == "NEW YORK") {
             image.src = "./NewYork.jpg";
         } else {
-            // image.src = "./australia.png";
             if (continent == 'EU') {
                 image.src = "./EU.png";
             } else if (continent == 'AS') {
@@ -519,10 +496,6 @@
         wind_degree.appendChild(im);
         wind_degree.appendChild(p);
     }
-
-
-
-
 
 
 

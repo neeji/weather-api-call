@@ -3,7 +3,6 @@ body{
 }
 .back_gr{
     position: fixed;
-    /* background-image: url("./background.jpeg"); */
     background-image: linear-gradient(90deg,#000000,#8b4298);    
     opacity: 1;
     z-index: -2;
@@ -14,6 +13,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     max-width: 1000px;
+    min-width: 330px;
     height: 100vh;
     /* border: 1px solid black; */
     margin: 0 auto;
@@ -52,14 +52,8 @@ body{
         width:100%;
         height: 25%;
 }
-.box1{
-    /* position: relative; */
-    width:65%;
-    height:100%;
-    /* border: 1px dotted green; */
-}
 .box2{
-    width:35%;
+    width:25%;
     height:100%;
     display: flex;
     flex-wrap: wrap;
@@ -67,11 +61,11 @@ body{
 }
 .im_box{
     height:50%;
-    width:100%;
+    width:35%;
 }
 .temp_box{
     height:50%;
-    width:100%;
+    width:35%;
 }
 #image{
     position: absolute;
@@ -79,7 +73,7 @@ body{
     width:100%;
     opacity: 0.1;
     z-index: -1;
-    /* need to dd border radius to image as well so that it wont overflow*/
+    /* need to add border radius to image as well so that it wont overflow*/
     border-radius: 46px 46px 46px 46px;
     -moz-border-radius: 46px 46px 46px 46px;
     -webkit-border-radius: 46px 46px 46px 46px;
@@ -114,11 +108,11 @@ p{
     margin:0;
 }
 #half_main{
-    width:100%;
+    width:65%;
     height:50%;
 }
-#another_half_main{
-    width:100%;
+.sun_wind{
+    width:65%;
     height:50%;
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +137,35 @@ margin:0;
     -webkit-border-radius: 46px 46px 46px 46px;
     border: 0px solid #000000;
 }
-@media screen and (max-width:540px){
+@media screen and (max-width:590px){
+    .im_box{
+        width:40%;
+        height:40%;
+        order: 1;
+    }
+    .temp_box{
+        width:60%;
+        height:40%;
+        order:2;
+    }
+    #half_main{
+        width:100%;
+        height:10%;
+        order:3;
+    }
+    .sun_wind{
+        width: 100%;
+        order:4;
+    }
+    #icon{
+        margin:0 0 0 25%;
+        height:50%;
+        width:50%;
+    }
 
+}
+@media screen and (max-width:360px){
+    span{
+        font-size: 0.85em;
+    }
 }
