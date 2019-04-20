@@ -107,3 +107,28 @@ span{
     text-align: left;
     font-weight: bold;
 }
+p{
+    color:white;    
+    font-size: 1.2em;
+    text-align: center;
+}
+#half_main{
+    width:100%;
+    height:50%;
+}
+#another_half_main{
+    width:100%;
+    height:50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#sunrise,#sunset,#sunrise_time,#sunset_time{
+    height:50%;
+    width:50%;
+}
+#sunrise img,#sunset img{
+    margin:25%;
+    margin-bottom: 0px;
+    height:50%;
+    width:50%;
+}

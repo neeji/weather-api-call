@@ -258,6 +258,7 @@
     var btn = document.getElementById("btn");
     var icon = document.getElementById("icon");
     var image = document.getElementById("image");
+    var half_main = document.getElementById("half_main");
     var data_box = document.getElementById("data_box");
 
 
@@ -275,8 +276,8 @@
                     .then(function (data) {
                         console.log(data);
                         // to set the image url according to the weather conditions.
-                        set_image(cc_value);
-                        // set_icon(data.weather[0].id);
+                        set_city_name(data);
+                        set_image(data);
                         set_icon(data);
                         append_spans(data);
                         console.log(codes[data.sys.country]);
@@ -372,62 +373,99 @@
 
     function append_spans(data) {
         data_box.innerHTML = "";
-        var p, text;
+        var span, text;
         // average temperature
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("Avg. : " + (data.main.temp - 273.15).toFixed(2) + String.fromCharCode(8451));
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         // minimum temperature:
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("MIN : " + (data.main.temp_min - 273.15).toFixed(2) + String.fromCharCode(8451));
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         //maximum temperature
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("MAX : " + (data.main.temp - 273.15).toFixed(2) + String.fromCharCode(8451));
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         //pressure
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("Pressure : " + data.main.pressure);
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         //humidity
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("Humidity : " + data.main.humidity);
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         //longitude
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("lon : " + data.coord.lon);
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
         //latitude
-        p = document.createElement('span');
+        span = document.createElement('span');
         text = document.createTextNode("lat : " + data.coord.lat);
-        p.appendChild(text);
-        data_box.appendChild(p);
+        span.appendChild(text);
+        data_box.appendChild(span);
     }
 
-    function set_image(cc_val) {
-        // console.log(cc.value);
-        var data = String(cc_val).toUpperCase();
-        console.log(data);
-        if (data == 'DELHI') {
+    function set_image(data) {
+        // example LONDON
+        var name = String(data.name).toUpperCase();
+        // example GB.
+        var country = data.sys.country;
+        // example EU.
+        var continent = codes[country];
+        // console.log(name);
+        // name = String(name).toUpperCase();
+        console.log(name);
+        if (name == 'DELHI') {
             image.src = "./delhi.jpeg";
-        } else if (data == 'AGRA') {
+        } else if (name == 'AGRA') {
             image.src = "./agra.jpg";
-        } else if (data == "LONDON") {
+        } else if (name == "LONDON") {
             image.src = "./London.jpg";
-        } else if (data == "NEW YORK") {
+        } else if (name == "NEW YORK") {
             image.src = "./NewYork.jpg";
         } else {
-            image.src = "./australia.png";
+            // image.src = "./australia.png";
+            if (continent == 'EU') {
+                image.src = "./EU.png";
+            } else if (continent == 'AS') {
+                image.src = "./AS.png";
+            } else if (continent == 'NA') {
+                image.src = "./NA.png";
+            } else if (continent == 'SA') {
+                image.src = "./SA.png";
+            } else if (continent == 'AF') {
+                image.src = "./AF.png";
+            } else if (continent == 'AN') {
+                image.src = "./AN.png";
+            } else if (continent == "OC") {
+                image.src = "./OC.png";
+            } else {
+                image.src = "./all_purpose.jpg";
+            }
+
         }
     }
 
-
+    function set_city_name(data) {
+        var name = String(data.name).toUpperCase();
+        var country = data.sys.country;
+        var continent = codes[country];
+        var p = document.createElement('p');
+        // divide in three paras
+        var text = document.createTextNode(`${name}`);
+        p.append(text);
+        half_main.appendChild(p);
+        p = document.createElement('p');
+        text = document.createTextNode(`${country},${continent}`);
+        p.append(text);
+        half_main.append(p);
+    }
 
 
 
