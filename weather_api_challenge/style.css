@@ -101,16 +101,17 @@ i:hover{
 span{
     /* background-color: mediumaquamarine; */
     display:inline-block;
-    width:65%;
+    width:75%;
     margin-left: 22%;
     font-size: 1em;
     text-align: left;
     font-weight: bold;
 }
 p{
-    color:white;    
+    color:aqua;    
     font-size: 1.2em;
     text-align: center;
+    margin:0;
 }
 #half_main{
     width:100%;
@@ -122,13 +123,26 @@ p{
     display: flex;
     flex-wrap: wrap;
 }
-#sunrise,#sunset,#sunrise_time,#sunset_time{
+#sunrise,#sunset,#wind_speed,#wind_degree{
     height:50%;
     width:50%;
 }
-#sunrise img,#sunset img{
-    margin:25%;
+#sunrise img,#sunset img,#wind_speed img,#wind_degree img{
+    margin:15%;
     margin-bottom: 0px;
-    height:50%;
-    width:50%;
+    height:35%;
+    width:35%;
+}
+#sunrise p,#sunset p,#wind_degree p,#wind_speed p{
+margin:0;
+}
+#inp{
+    background-color: aqua;
+    border-radius: 46px 46px 46px 46px;
+    -moz-border-radius: 46px 46px 46px 46px;
+    -webkit-border-radius: 46px 46px 46px 46px;
+    border: 0px solid #000000;
+}
+@media screen and (max-width:540px){
+
 }

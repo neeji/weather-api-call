@@ -260,7 +260,10 @@
     var image = document.getElementById("image");
     var half_main = document.getElementById("half_main");
     var data_box = document.getElementById("data_box");
-
+    var sunrise = document.getElementById("sunrise");
+    var sunset = document.getElementById("sunset");
+    var wind_speed = document.getElementById("wind_speed");
+    var wind_degree = document.getElementById("wind_degree");
 
     function get_data() {
         var url_weather = `https://api.openweathermap.org/data/2.5/weather?q=${cc.value}&APPID=3e0c903be4bda4ffe7ed1611ebc23631`;
@@ -280,6 +283,8 @@
                         set_image(data);
                         set_icon(data);
                         append_spans(data);
+                        set_sun_times(data);
+                        set_wind(data);
                         console.log(codes[data.sys.country]);
                     })
             })
@@ -409,6 +414,11 @@
         text = document.createTextNode("lat : " + data.coord.lat);
         span.appendChild(text);
         data_box.appendChild(span);
+        //Weather Description
+        span = document.createElement('span');
+        text = document.createTextNode("Descr : " + data.weather[0].description);
+        span.appendChild(text);
+        data_box.appendChild(span);
     }
 
     function set_image(data) {
@@ -453,21 +463,62 @@
     }
 
     function set_city_name(data) {
+        half_main.innerHTML = "";
         var name = String(data.name).toUpperCase();
         var country = data.sys.country;
         var continent = codes[country];
         var p = document.createElement('p');
         // divide in three paras
         var text = document.createTextNode(`${name}`);
-        p.append(text);
+        p.appendChild(text);
         half_main.appendChild(p);
         p = document.createElement('p');
         text = document.createTextNode(`${country},${continent}`);
-        p.append(text);
+        p.appendChild(text);
         half_main.append(p);
     }
 
+    function set_sun_times(data) {
+        sunrise.innerHTML = "";
+        sunset.innerHTML = "";
+        var sunrise_time = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        var sunset_time = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        var p = document.createElement('p');
+        var text = document.createTextNode(`${sunrise_time}`);
+        p.appendChild(text);
+        var im = document.createElement('img');
+        im.setAttribute("src", "./sunrise_64.png");
+        sunrise.appendChild(im);
+        sunrise.appendChild(p);
+        p = document.createElement('p');
+        text = document.createTextNode(`${sunset_time}`);
+        p.appendChild(text);
+        im = document.createElement('img');
+        im.setAttribute("src", "./sunset_64.png");
+        sunset.appendChild(im);
+        sunset.appendChild(p);
+    }
 
+    function set_wind(data) {
+        wind_speed.innerHTML = "";
+        wind_degree.innerHTML = "";
+        var speed = data.wind.speed;
+        var degree = data.wind.deg;
+        var p = document.createElement('p');
+        var im = document.createElement('img');
+        var text = document.createTextNode(`${speed} m/s`);
+        p.appendChild(text);
+        im.setAttribute("src", "./wind_speed.png");
+        wind_speed.appendChild(im);
+        wind_speed.appendChild(p);
+        p = document.createElement('p');
+        text = document.createTextNode(`${degree}${String.fromCharCode(176)}`);
+        p.append(text);
+        im = document.createElement('img');
+        im.setAttribute("src", "./wind_degree.png");
+        wind_degree.appendChild(im);
+        wind_degree.appendChild(p);
+    }
 
 
 
